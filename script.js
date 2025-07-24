@@ -6,8 +6,19 @@ function generateGrid(gridSize){
         newDiv.style.width = `${100 / gridSize}%`;
         newDiv.style.height = `${100 / gridSize}%`;
         newDiv.addEventListener('mouseenter', function () {
-            this.classList.add("hover");
-            this.style.backgroundColor = 'black';
+            if (!this.style.backgroundColor) {
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+                this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+                this.style.opacity = "0.1";
+            } else {
+                let currentOpacity = parseFloat(this.style.opacity);
+                if (currentOpacity < 1) {
+                    currentOpacity = Math.min(currentOpacity + 0.1, 1);
+                    this.style.opacity = currentOpacity.toString();
+                }
+            }
         });
         container.appendChild(newDiv);
     }
