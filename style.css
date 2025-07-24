@@ -23,8 +23,5 @@ body {
     background-color: white;
     border: 1px solid darkslategrey;
     box-sizing: border-box;
-    /* Calculate width: 100% / 16 squares per row */
-    width: calc(100% / 16);
-    /* Calculate height: 100% / 16 rows */
-    height: calc(100% / 16);
+
 }
